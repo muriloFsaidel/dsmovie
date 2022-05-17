@@ -6,7 +6,7 @@ header {
 }
 
 .dsmovie-nav-content{
-      /*alinhar os objetos 'h1' e 'a' para ficar lado a lado */
+      /*alinha os objetos 'h1' e 'a' para ficar lado a lado */
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -19,7 +19,7 @@ header {
     font-size: 24px;
 }
 .dsmovie-contact-container{
-    /*alinhar os objetos para ficar lado a lado */
+    /*alinha os objetos 'svg' e 'p' para ficar lado a lado */
     display: flex; 
     align-items: center;   
 }
