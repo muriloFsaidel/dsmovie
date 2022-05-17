@@ -1,8 +1,12 @@
+import NavBar from "components/NavBar";
+
+
 //componente react (a função que retorna um conjunto de tags html)
 function App() {
   return (
-    <h1>Página Inicial</h1>
+    <NavBar /> 
   );
 }
 
 export default App;
+ 
