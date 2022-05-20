@@ -1,5 +1,6 @@
 import MovieScore from "components/MovieScore";
-function MovieCard(){
+import { Link } from "react-router-dom";
+function MovieCard() {
 
     const movieDB = {
         id: 1,
@@ -11,11 +12,14 @@ function MovieCard(){
 
     return (
         <div>
-        <img className="dsmovie-movie-card-image" src={movieDB.image} alt={movieDB.title} />
+            <img className="dsmovie-movie-card-image" src={movieDB.image} alt={movieDB.title} />
             <div className="dsmovie-card-bottom-container">
                 <h3>{movieDB.title}</h3>
                 <MovieScore />
-                <div className="btn btn-primary dsmovie-btn">Avaliar</div>
+                <Link to={`/form/${movieDB.id}`}>
+                    <div className="btn btn-primary dsmovie-btn">Avaliar</div>
+                </Link>
+
             </div>
         </div>
     );
