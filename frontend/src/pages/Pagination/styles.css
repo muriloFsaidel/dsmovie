@@ -1,0 +1,62 @@
+.dsmovie-pagination-container {
+    /*espaçamento 15px no topo e 0 no resto*/
+    padding: 15px 0;
+    display: flex;
+    /*horizontalmente no centro*/
+    justify-content: center;
+    /*verticalmente no centro*/
+    align-items: center;
+}
+/* buttons and paragraph */
+.dsmovie-pagination-box {
+    width: 180px;
+    /*objetos alinhados um ao lado do outro*/
+    display:flex;
+    /*horizontalmente um espaço entre objetos*/
+    justify-content: space-between;
+    align-items: center;
+}
+/*?como que é nelio? form da onde?*/
+.dsmovie-pagination-box form {
+    width: 100%;
+    display: flex;
+}
+
+.dsmovie-pagination-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-primary);
+    /*efeito hover para o cursor*/
+    cursor:pointer;
+}
+
+.dsmovie-pagination-button svg {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(19%) saturate(7395%) hue-rotate(234deg) brightness(89%) contrast(92%);
+}
+
+.dsmovie-pagination-button:disabled {
+    border: 1px solid #c2c2c2;
+    cursor: unset;
+}
+
+.dsmovie-pagination-button:disabled svg {
+    filter: none;
+}
+
+.dsmovie-pagination-container p {
+    /*tira todos espaçamentos*/
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-primary);
+}
+
+/*segunda flecha */
+.dsmovie-flip-horizontal {
+    /*rotaciona a flecha esquerda em 180 graus */
+    transform: rotate(180deg);
+}

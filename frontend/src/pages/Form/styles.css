@@ -41,7 +41,7 @@
     align-items: center;
     /*dentro dos 480px espaçamento 20px para baixo e 10px para o resto*/
     padding: 10px 10px 20px 10px;
-    /* 8px para ponta esquerda inferior, 8px para ponta direita inferrior e o resto 0px*/
+    /* 8px para ponta esquerda inferior, 8px para ponta direita inferior e o resto 0px*/
     border-radius: 0 0 8px 8px;
 }
 
