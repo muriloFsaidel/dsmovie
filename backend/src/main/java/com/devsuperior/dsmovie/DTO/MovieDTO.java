@@ -1,37 +1,35 @@
-package com.devsuperior.dsmovie.entities;
+package com.devsuperior.dsmovie.DTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.devsuperior.dsmovie.entities.Movie;
 
-//mapeamento objeto e modelo relacional(associação entre objeto java para entidade relacional)
-@Entity
-@Table(name = "tb_movie" )
-public class Movie {
-
-	//chave primária
-	@Id 
-	// auto-incrementando a chave primária de 1 em 1
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//Objeto de transferência de dados (DTO) com a cópia dos dados do db
+public class MovieDTO {
+	
 	private Long id;
 	private String title;
 	private Double score;
 	private Integer count;
 	private String image;
 	
-	public Movie() {
+	public MovieDTO() {
 		
 	}
 	
-	public Movie(Long id,String title, Double score, Integer count, String image) {
+	public MovieDTO(Long id, String title, Double score, Integer count, String image) {
 		this.id = id;
 		this.title = title;
 		this.score = score;
 		this.count = count;
 		this.image = image;
+	}
 	
+	public MovieDTO(Movie movie) {
+		//não precisa do this, pois é de objeto para objeto
+		id = movie.getId();
+		title = movie.getTitle();
+		score = movie.getScore();
+		count = movie.getCount();
+		image = movie.getImage();
 	}
 
 	public Long getId() {
@@ -41,11 +39,11 @@ public class Movie {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -75,4 +73,5 @@ public class Movie {
 	}
 	
 	
+
 }
