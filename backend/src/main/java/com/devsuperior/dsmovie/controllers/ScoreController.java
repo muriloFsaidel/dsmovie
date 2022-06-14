@@ -16,6 +16,7 @@ public class ScoreController {
 
 	@Autowired
 	private ScoreService service;
+	
 	//mapeando método put, pois irá salvar em mais de um lugar
 	@PutMapping
 	public MovieDTO saveScore(@RequestBody ScoreDTO dto) {
