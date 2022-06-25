@@ -1,21 +1,32 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import MovieCard from "components/MovieCard";
 import Pagination from "pages/Pagination";
 import { BASE_URL } from "utils/requests";
+import { MoviePage } from "types/movie";
 
 function Listing() {
+    //useState permite criar o estado e a função para atualizar o estado
+    const [pageNumber, setPageNumber] = useState(0);
 
-    //FORMA ERRADA
-    //axios do a get request to ``
-    //then throw a lambda expression 
-    //to get the data from the backend
-    axios.get(`${BASE_URL}/movies?size=12&page=0`)
-    .then(response => {
-        console.log(response.data)
-    });
+    //no momento que chamar o componente, atualizar o estado (mundança no estado)
+    useEffect(() => {
+        //axios do a get request to ``
+        //then throw a lambda expression 
+        //to get the data from the backend
+         axios.get(`${BASE_URL}/movies?size=12&page=1`)
+            .then(response => {
+                //moldando os dados da resposta de acordo com o objeto MoviePage
+                 const data = response.data as MoviePage;
+                 console.log(data);
+                 //atualizando estado
+                 setPageNumber(data.number);
+         });
+    }, []);   
 
     return (
         <>
+            <p>{pageNumber}</p>
             <Pagination />
             {/* classes bootstrap: container, row, col*/}
             <div className="container">
