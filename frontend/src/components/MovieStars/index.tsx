@@ -4,15 +4,56 @@ import {ReactComponent as EmptyStar} from 'assets/img/EmptyStar.svg';
 
 import './styles.css';
 
-function MovieStars(){
+type Props = {
+    score: number;
+}
+
+type StarProps = {
+    fill: number;
+}
+
+//score 4.5 = [1,1,1,1,0.5]
+function getFills(score: number){
+
+const fills = [0,0,0,0,0]; 
+
+const integerPart = Math.floor(score);
+
+for(let i = 0; i < integerPart; i++){
+    fills[i] = 1;
+}
+
+const diff = score - integerPart;
+if(diff > 0){
+    fills[integerPart] = 0.5;
+}
+
+return fills;
+}
+
+function Star({ fill } : StarProps){
+    if(fill === 0){
+        return <EmptyStar />
+    }
+    else if(fill === 1){
+        return <FullStar />
+    }
+    else{
+        return <HalfStar />
+    }
+}
+
+function MovieStars({score} : Props){
+
+    const fills = getFills(score);
 
     return (
         <div className="dsmovie-stars-container">
-            <FullStar />
-            <FullStar />
-            <FullStar />
-            <HalfStar />
-            <EmptyStar />
+            <Star fill = {fills[0]} />
+            <Star fill = {fills[1]} />
+            <Star fill = {fills[2]} />
+            <Star fill = {fills[3]} />
+            <Star fill = {fills[4]} />
         </div>
     );
 }
